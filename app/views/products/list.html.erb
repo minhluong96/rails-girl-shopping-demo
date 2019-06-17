@@ -1,0 +1,10 @@
+<section class="feature_product_area section_gap_top section_gap_bottom_custom">
+  <div class="container">
+    <%= link_to("New Product", new_product_path, class: "genric-btn info radius large mt-10 mb-20") %>
+    <div class="row">
+      <% @products.each do |product| %>
+        <%= render 'product_item', product: product %>
+      <% end %>
+    </div>
+  </div>
+</section>

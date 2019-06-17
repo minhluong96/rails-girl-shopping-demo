@@ -20,7 +20,6 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     if @product.save
       redirect_to @product
-      flash[:info] = 'Product was successfully created.'
     else
       render :new
     end
@@ -29,10 +28,14 @@ class ProductsController < ApplicationController
   def update
     if @product.update(product_params)
       redirect_to @product
-      flash[:info] = 'Product was successfully updated.'
     else
       render :edit
     end
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to list_products_url
   end
 
   private
